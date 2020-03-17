@@ -1,0 +1,382 @@
+@model RealEstateHariKripa.Models.property
+
+@{
+    Layout = null;
+}
+ 
+    @using (Html.BeginForm("Edit", "DashBoard", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("AddOrEdit", "Employee", new { id = @Model.prop_id }) }))
+    {
+		
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="db-add-list-wrap">
+                                    <div class="act-title">
+                                        <h5>General Information :</h5>
+                                    </div>
+                                    <div class="db-add-listing">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                @Html.HiddenFor(model => model.prop_id)
+                                                <div class="form-group">
+                                                    <label>Property Title</label>
+                                                    @*@Html.EditorFor(model => model.prop_tittle, new { htmlAttributes = new { @class = "form-control filter-input", placeholder = "Sea View Apartment" } })*@
+                                                    <input type="text" class="form-control filter-input" placeholder="Sea View Apartment" id="prop_tittle" name="prop_tittle" value="@Model.prop_tittle">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="Address of your property" id="prop_address" name="prop_address" value="@Model.prop_address">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Neighborhood </label>
+                                                    <input type="text" class="form-control filter-input" placeholder="Andersonville" id="prop_neighborhood" name="prop_neighborhood" value="@Model.prop_neighborhood">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Select Country</label>
+                                                <select class="listing-input hero__form-input  form-control custom-select" id="prop_country" name="prop_country" value="@Model.prop_country">
+                                                    <option value="INDIA">INDIA</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Select State </label>
+                                                <select class="listing-input hero__form-input  form-control custom-select" id="prop_state" name="prop_state" value="@Model.prop_state">
+                                                    <option value="Maharashtra">Maharashtra</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Select City</label>
+                                                <select class="listing-input hero__form-input  form-control custom-select" id="prop_city" name="prop_city" value="@Model.prop_city">
+                                                    <option value="Mumbai">Mumbai</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+
+                                                <div class="form-group">
+                                                    <label>Zip/Postal Code</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="4000" id="prop_code" name="prop_code" value="@Model.prop_code">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Select Property Type</label>
+                                                <select class="listing-input hero__form-input  form-control custom-select" id="prop_type" name="prop_type" value="@Model.prop_type">
+                                                    <option value="Commercial">Commercial</option>
+                                                    <option value="Residential">Residential</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Select Property Status</label>
+                                                <select class="listing-input hero__form-input  form-control custom-select" id="prop_status" name="prop_status" value="@Model.prop_status">
+                                                    <option value="For Sale">For Sale</option>
+                                                    <option value="For Rent">For Rent</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Property Price</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="$1500" id="prop_prop_price" name="prop_prop_price" value="@Model.prop_prop_price">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="list_info">Description</label>
+                                                        <textarea class="form-control" rows="4" placeholder="Enter your text here" id="prop_description" name="prop_description" value="@Model.prop_description"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="db-add-list-wrap">
+                                    <div class="act-title">
+                                        <h5>Gallery :</h5>
+                                    </div>
+                                    <div class="db-add-listing">
+                                        <div class="row">
+                                            <div class="col-md-12 mb-5">
+                                                <div class="form-group">
+                                                    @*<form class="photo-upload">*@
+                                                    <div class="form-group">
+                                                        <div class="add-listing__input-file-box" id="imagePreview">
+                                                            <img id="image_upload_preview_one" src="~/ProjectFIle/Gallery/flat.png" alt="your image" />
+                                                            <input type='file' name="Gallery_ImageUpload" id="Gallery_ImageUpload" class="add-listing__input-file" value="@Model.Gallery_ImageUpload" />
+                                                            <div class="add-listing__input-file-wrap">
+                                                                <i class="lnr lnr-cloud-upload"></i>
+                                                                <p>Click here to upload your images</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*</form>*@
+                                                </div>
+                                                @*<div class="add-btn">
+                                                        <a href="#" class="btn v3">Add Images</a>
+                                                    </div>*@
+                                            </div>
+                                            <div class="col-md-12 mt-30">
+                                                <label>Property Video Link</label>
+                                                <input type="text" class="form-control filter-input" placeholder="https://www.youtube.com/watch?v=dqD0SqMNtks" id="prop_video_link" name="prop_video_link" value="@Model.prop_video_link">
+                                                <div class="add-btn">
+                                                    <a href="#" class="btn v3 mt-30">Add Video</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="db-add-list-wrap">
+                                    <div class="act-title">
+                                        <h5>Floor Plans :</h5>
+                                    </div>
+                                    <div class="db-add-listing">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Select Floor</label>
+                                                <select class="listing-input hero__form-input  form-control custom-select" id="prop_floor" name="prop_floor" value="@Model.prop_floor">
+                                                    <option value="First Floor">First Floor</option>
+                                                    <option value="Second Floor">Second Floor</option>
+                                                    <option value="Third Floor">Third Floor</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Total Size in Sq Ft</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="1240" id="prop_total_sqft" name="prop_total_sqft" value="@Model.prop_total_sqft">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Size of Rooms in Sq Ft</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="144" id="prop_room_sqft" name="prop_room_sqft" value="@Model.prop_room_sqft">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Size of Bath in Sq Ft</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="48" id="prop_bath_sqft" name="prop_bath_sqft" value="@Model.prop_bath_sqft">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Price</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="$1240" id="prop_price" name="prop_price" value="@Model.prop_price">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    @*<form class="photo-upload">*@
+                                                    <div class="form-group">
+                                                        <div class="add-listing__input-file-box">
+                                                            <img id="image_upload_preview_two" src="~/ProjectFIle/FloorDigram/Graph.png" alt="your image" />
+                                                            <input type='file' name="Floor_ImageUpload" id="Floor_ImageUpload" class="add-listing__input-file" value="@Model.Floor_ImageUpload" />
+                                                            <div class="add-listing__input-file-wrap">
+                                                                <i class="lnr lnr-cloud-upload"></i>
+                                                                <p>Click here to upload your images</p>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*</form>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="db-add-list-wrap">
+                                    <div class="act-title">
+                                        <h5>Property Details :</h5>
+                                    </div>
+                                    <div class="db-add-listing">
+                                        <div class="row mb-30">
+                                            <div class="col-md-4">
+                                                <label>Property ID</label>
+                                                <input type="text" class="form-control filter-input" placeholder="ZOAC25" id="prop_flat_code" name="prop_flat_code" value="@Model.prop_flat_code">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Number of Bedrooms</label>
+                                                    <select class="listing-input hero__form-input  form-control custom-select" id="prop_bedrooms" name="prop_bedrooms" value="@Model.prop_bedrooms">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        @*<option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                            <option value="13">13</option>
+                                                            <option value="14">14</option>
+                                                            <option value="15">15</option>
+                                                            <option value="16">16</option>
+                                                            <option value="17">17</option>
+                                                            <option value="18">18</option>
+                                                            <option value="19">19</option>
+                                                            <option value="20">20</option>
+                                                            <option value="21">21</option>
+                                                            <option value="22">22</option>
+                                                            <option value="23">23</option>
+                                                            <option value="24">24</option>
+                                                            <option value="25">25</option>
+                                                            <option value="26">26</option>
+                                                            <option value="27">27</option>
+                                                            <option value="28">28</option>
+                                                            <option value="29">29</option>
+                                                            <option value="30">30</option>*@
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Number of Rooms</label>
+                                                    <select class="listing-input hero__form-input  form-control custom-select" id="prop_rooms" name="prop_rooms" value="@Model.prop_rooms">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Number of Bath</label>
+                                                    <select class="listing-input hero__form-input  form-control custom-select" id="prop_bath" name="prop_bath" value="@Model.prop_bath">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Number of Garages</label>
+                                                    <select class="listing-input hero__form-input  form-control custom-select" id="prop_garages" name="prop_garages" value="@Model.prop_garages">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>22-08-2019</label>
+                                                <div id="datepicker-from" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                    <input class="form-control" type="text" placeholder="Check In" id="prop_date" name="prop_date" value="@Model.prop_date">
+                                                    <span class="input-group-addon"><i class="lnr lnr-calendar-full"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Amenities</label>
+                                                    <div>
+                                                        <div class="checkbox-inline">
+                                                            @Html.CheckBox("prop_amenities_basketball", false, new { @class = "filter-checkbox" })
+                                                            <label>Basketball court</label>
+                                                        </div>
+                                                        <div class="checkbox-inline">
+                                                            @Html.CheckBox("prop_amenities_gym", false, new { @class = "filter-checkbox" })
+                                                            <label for="check-b" value="Gym">Gym</label>
+                                                        </div>
+                                                        <div class="checkbox-inline">
+                                                            @Html.CheckBox("prop_amenities_washer", false, new { @class = "filter-checkbox" })
+                                                            <label for="check-c">washer and dryer </label>
+                                                        </div>
+                                                        <div class="checkbox-inline">
+                                                            @Html.CheckBox("prop_amenities_wheelchair", false, new { @class = "filter-checkbox" })
+                                                            <label for="check-d">Wheelchair Friendly</label>
+                                                        </div>
+                                                        <div class="checkbox-inline">
+                                                            @Html.CheckBox("prop_amenities_laundry", false, new { @class = "filter-checkbox" })
+                                                            <label for="check-f">Laundry</label>
+                                                        </div>
+                                                        <div class="checkbox-inline">
+                                                            @Html.CheckBox("prop_amenities_airconditioned", false, new { @class = "filter-checkbox" })
+                                                            <label for="check-e">Air Conditioned</label>
+                                                        </div>
+                                                        <div class="checkbox-inline">
+                                                            @Html.CheckBox("prop_amenities_pool", false, new { @class = "filter-checkbox" })
+                                                            <label for="check-z">Swimming Pool</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    @*<form class="photo-upload">*@
+                                                    <div class="form-group">
+                                                        <label>Property Documents</label>
+                                                        <div class="add-listing__input-file-box">
+                                                            <img id="image_upload_preview_three" src="~/ProjectFIle/Document/images.png" alt="your image" />
+                                                            <input type='file' name="Document_ImageUpload" id="Document_ImageUpload" class="add-listing__input-file" value="@Model.Document_ImageUpload" />
+                                                            <div class="add-listing__input-file-wrap">
+                                                                <i class="lnr lnr-cloud-upload"></i>
+                                                                <p>Click here to upload Property Documents</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*</form>*@
+                                                </div>
+                                                @*<div class="add-btn">
+                                                        <a href="#" class="btn v3">Upload Document</a>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="db-add-list-wrap">
+                                    <div class="act-title">
+                                        <h5>Social Networks :</h5>
+                                    </div>
+                                    <div class="db-add-listing">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Facebook link (Optional)</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="Facebook url" id="prop_fb" name="prop_fb" value="@Model.prop_fb">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Pinterest (Optional)</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="Pinterest url" id="prop_pintr" name="prop_pintr" value="@Model.prop_pintr">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Twitter link (Optional)</label>
+                                                    <input type="text" class="form-control filter-input" placeholder="Twitter url" id="prop_link" name="prop_link" value="@Model.prop_link">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-left">
+                                                <div class="res-box mt-10">
+                                                    <div class="checkbox-inline">
+                                                        @Html.CheckBox("prop_isconditon", false, new { @class = "filter-checkbox" })
+                                                        <label for="remember">I've read and accept <a href="terms.html">terms &amp; conditions</a></label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-right sm-left">
+                                                 
+                                                <button class="btn v3" type="submit" value="submit">Submit</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+	}

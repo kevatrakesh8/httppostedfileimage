@@ -1,0 +1,308 @@
+@model RealEstateHariKripa.Models.property
+
+@{
+    Layout = null;
+}
+
+
+            <!--Dashboard content starts-->
+
+            <div class="dash-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="db-add-list-wrap">
+                                <div class="db-add-listing">
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">General Information :</h3>
+                                                            <div class="pull-right">
+                                                                <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                                                                    <i class="glyphicon glyphicon-filter"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <table class="table table-hover act-title" id="dev-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Sr No.</th>
+                                                                    <th>First Name</th>
+                                                                    <th>Last Name</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Property Title</td>
+                                                                    <td>@Model.prop_tittle </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2</td>
+                                                                    <td>Address</td>
+                                                                    <td> @Model.prop_address</ td >
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>3</td>
+                                                                    <td>Neighborhood</td>
+                                                                    <td>@Model.prop_neighborhood</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>4</td>
+                                                                    <td>Select Country</td>
+                                                                    <td>@Model.prop_country</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5</td>
+                                                                    <td>Select State</td>
+                                                                    <td>@Model.prop_state</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6</td>
+                                                                    <td>Select City</td>
+                                                                    <td>@Model.prop_city</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>7</td>
+                                                                    <td>Zip/Postal Code</td>
+                                                                    <td>@Model.prop_code</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>8</td>
+                                                                    <td>Property Type</td>
+                                                                    <td>@Model.prop_type</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>9</td>
+                                                                    <td>Property Status</td>
+                                                                    <td>@Model.prop_state</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>10</td>
+                                                                    <td>Property Price</td>
+                                                                    <td>INR @Model.prop_price </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>11</td>
+                                                                    <td>Property Video Link</td>
+                                                                    <td>@Model.prop_video_link</td>
+                                                                    @*<td><img src="@Url.Content(Model.prop_video_link)" alt="Not Found" width="120" height="120"></td>*@
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>12</td>
+                                                                    <td>Description</td>
+                                                                    <td>@Model.prop_description</td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Floor Plans :</h3>
+                                                            <div class="pull-right">
+                                                                <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                                                                    <i class="glyphicon glyphicon-filter"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <table class="table table-hover" id="dev-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Sr No.</th>
+                                                                    <th>First Name</th>
+                                                                    <th>Last Name</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>13</td>
+                                                                    <td>Select Floor</td>
+                                                                    <td>@Model.prop_floor</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>14</td>
+                                                                    <td>Total Size in Sq Ft</td>
+                                                                    <td>@Model.prop_total_sqft</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>15</td>
+                                                                    <td>Size of Rooms in Sq Ft</td>
+                                                                    <td>@Model.prop_room_sqft</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>16</td>
+                                                                    <td>Size of Bath in Sq Ft</td>
+                                                                    <td>@Model.prop_bath_sqft</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>17</td>
+                                                                    <td>Price</td>
+                                                                    <td>@Model.prop_prop_price</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>18</td>
+                                                                    <td>Image</td> 
+                                                                    <td><img src="@Url.Content(Model.prop_gallery_path)" alt="Not Found" width="120" height="120"></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Property Details :</h3>
+                                                            <div class="pull-right">
+                                                                <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                                                                    <i class="glyphicon glyphicon-filter"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <table class="table table-hover" id="dev-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Sr No.</th>
+                                                                    <th>First Name</th>
+                                                                    <th>Last Name</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>19</td>
+                                                                    <td>Property ID</td>
+                                                                    <td>@Model.prop_flat_code</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>20</td>
+                                                                    <td>Number of Bedrooms</td>
+                                                                    <td>@Model.prop_bedrooms</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>21</td>
+                                                                    <td>Number of Rooms</td>
+                                                                    <td>@Model.prop_rooms</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>22</td>
+                                                                    <td>Number of Bath</td>
+                                                                    <td>@Model.prop_bath</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>23</td>
+                                                                    <td>Number of Garages</td>
+                                                                    <td>@Model.prop_garages</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>24</td>
+                                                                    <td>Date</td>
+                                                                    <td>@Model.prop_date</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>25</td>
+                                                                    <td>Basketball court</td>
+                                                                    <td>@Model.prop_amenities_basketball</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>26</td>
+                                                                    <td>Gym</td>
+                                                                    <td>@Model.prop_amenities_gym</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>27</td>
+                                                                    <td>washer and dryer</td>
+                                                                    <td>@Model.prop_amenities_washer</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>28</td>
+                                                                    <td>Wheelchair Friendly</td>
+                                                                    <td>@Model.prop_amenities_wheelchair</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>29</td>
+                                                                    <td>Laundry</td>
+                                                                    <td>@Model.prop_amenities_laundry</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>30</td>
+                                                                    <td>Air Conditioned</td>
+                                                                    <td>@Model.prop_amenities_airconditioned</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>31</td>
+                                                                    <td>Swimming Pool</td>
+                                                                    <td>@Model.prop_amenities_pool</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>32</td>
+                                                                    <td>Property Documents</td> 
+                                                                    <td><img src="@Url.Content(Model.prop_document)" alt="Not Found" width="120" height="120" /></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>33</td>
+                                                                    <td>Facebook link </td>
+                                                                    <td>@Model.prop_fb</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>34</td>
+                                                                    <td>Pinterest </td>
+                                                                    <td>@Model.prop_pintr</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>35</td>
+                                                                    <td>Twitter link </td>
+                                                                    <td>@Model.prop_link</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dash-content">
+                <div class="container-fluid">
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Dashboard content ends-->
+            <!--Dashboard footer starts-->
+            <div class="dash-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="listing-button">
+                                <a href="@Url.Action("mylistings", new { id = @Model.prop_id })" class="btn v4"><i class="ion-arrow-left-a"></i> Back</a>
+                                <a href="@Url.Action("Edit", new { id = @Model.prop_id })" class="btn v4"><i class="ion-edit"></i> Edit</a>
+                                <a href="@Url.Action("Edit", new { id = @Model.prop_id })" class="btn v4"><i class="ion-android-delete"></i> Delete</a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div class="dash-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>© 2019 SarchHolm . All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Dashboard footer ends-->
+        </div>
+        <!--Dashboard content Wrapper ends-->
